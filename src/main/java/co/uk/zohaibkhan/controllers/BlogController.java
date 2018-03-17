@@ -14,28 +14,28 @@ import java.util.List;
 @RestController
 public class BlogController {
 
-    private final PostService postService;
+  private final PostService postService;
 
-    @Autowired
-    public BlogController(PostService postService) {
-        this.postService = postService;
-    }
+  @Autowired
+  public BlogController(PostService postService) {
+    this.postService = postService;
+  }
 
-    @GetMapping(value = "/")
-    public String index() {
-        return "index";
-    }
+  @GetMapping(value = "/")
+  public String index() {
+    return "index";
+  }
 
-    @GetMapping(value = "/posts")
-    public List<Post> posts() {
-        return postService.getAllPosts();
-    }
+  @GetMapping(value = "/posts")
+  public List<Post> posts() {
+    return postService.getAllPosts();
+  }
 
-    @PostMapping(value = "/post")
-    public void publishPost(@RequestBody Post post) {
-        if (post.getDateCreated() == null) {
-            post.setDateCreated(new Date());
-        }
-        postService.insert(post);
+  @PostMapping(value = "/post")
+  public void publishPost(@RequestBody Post post) {
+    if (post.getDateCreated() == null) {
+      post.setDateCreated(new Date());
     }
+    postService.insert(post);
+  }
 }
