@@ -1,6 +1,7 @@
 package co.uk.zohaibkhan.service;
 
 import co.uk.zohaibkhan.entities.Post;
+import co.uk.zohaibkhan.entities.User;
 import co.uk.zohaibkhan.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class PostService {
 
   public void insert(Post post) {
     postRepository.save(post);
+  }
+
+  public List<Post> findByUser(User user) {
+    return postRepository.findByCreatorId(user.getId());
   }
 }
