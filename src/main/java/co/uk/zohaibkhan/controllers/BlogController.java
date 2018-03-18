@@ -27,11 +27,6 @@ public class BlogController {
     this.userService = userService;
   }
 
-  @GetMapping(value = "/")
-  public String index() {
-    return "index";
-  }
-
   @GetMapping(value = "/posts")
   public List<Post> posts() {
     return postService.getAllPosts();

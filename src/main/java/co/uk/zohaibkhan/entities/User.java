@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 public class User {
@@ -15,6 +16,7 @@ public class User {
   @GeneratedValue
   private Long id;
   private String username;
+  @JsonIgnore
   private String password;
 
   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
