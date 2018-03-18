@@ -38,4 +38,11 @@ public class BlogController {
     }
     postService.insert(post);
   }
+
+  @GetMapping(value = "/private")
+  public String privateArea(){
+    return "Private area";
+  }
+
+
 }
